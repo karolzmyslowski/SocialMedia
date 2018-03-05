@@ -192,11 +192,15 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gYy-yo-5iI">
                                         <rect key="frame" x="8" y="8" width="327" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="3eo-tO-Svx" customClass="CircleView" customModule="SocialMedia" customModuleProvider="target">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="3eo-tO-Svx" customClass="CircleView" customModule="SocialMedia" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="Fgf-hW-iWF"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="NVD-iu-Rmu" appends="YES" id="itz-AN-lAx"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvU-oU-aUz">
                                                 <rect key="frame" x="60" y="0.0" width="217" height="49"/>
@@ -210,6 +214,9 @@
                                                     <constraint firstAttribute="width" constant="40" id="TXU-nH-6hP"/>
                                                 </constraints>
                                                 <state key="normal" image="post-it"/>
+                                                <connections>
+                                                    <action selector="postBtnTapped:" destination="fv0-Nl-W61" eventType="touchUpInside" id="qDq-aX-rT0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -253,7 +260,7 @@
                                                                     <color key="textColor" red="0.15396114147163484" green="0.32592452030379526" blue="0.48824159263959388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="Z5R-Fz-1Vz">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like (1)" translatesAutoresizingMaskIntoConstraints="NO" id="Z5R-Fz-1Vz">
                                                                     <rect key="frame" x="288" y="10" width="45" height="45.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="45" id="KCe-35-JfZ"/>
@@ -268,14 +275,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="heI-gC-pvB">
                                                             <rect key="frame" x="0.0" y="75" width="343" height="285.5"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zrzut ekranu 2018-02-15 o 23.30.59" translatesAutoresizingMaskIntoConstraints="NO" id="9E0-xP-IOy">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="185"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9E0-xP-IOy">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Cjh-di-yrU"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-BN-GXk">
-                                                                    <rect key="frame" x="0.0" y="185" width="343" height="100.5"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-BN-GXk">
+                                                                    <rect key="frame" x="0.0" y="128" width="343" height="157.5"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="b3U-2A-UO1"/>
@@ -329,7 +336,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="caption" destination="HDG-BN-GXk" id="UNc-4n-H6l"/>
-                                            <outlet property="likesLbn" destination="w56-vt-Auv" id="0CR-4H-rSc"/>
+                                            <outlet property="likeImg" destination="Z5R-Fz-1Vz" id="Ofi-dp-ECc"/>
+                                            <outlet property="likesLbn" destination="blV-XG-gjJ" id="s1b-QD-loL"/>
                                             <outlet property="postImg" destination="9E0-xP-IOy" id="8OO-h0-iMF"/>
                                             <outlet property="profileImg" destination="i6N-j9-V0N" id="P9j-nZ-fIF"/>
                                             <outlet property="userNameLabel" destination="VDj-BX-0rV" id="efI-pt-OIV"/>
@@ -355,6 +363,8 @@
                         <viewLayoutGuide key="safeArea" id="CPX-Ff-1d7"/>
                     </view>
                     <connections>
+                        <outlet property="captionField" destination="dvU-oU-aUz" id="16Y-8q-ik3"/>
+                        <outlet property="imageAdd" destination="3eo-tO-Svx" id="3in-Uv-K2w"/>
                         <outlet property="tableView" destination="WCu-Ht-Bcg" id="Jzw-t9-RNG"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSingIn" id="Le7-vf-dBX"/>
                     </connections>
@@ -365,16 +375,20 @@
                         <action selector="singOutTapped:" destination="fv0-Nl-W61" id="O7N-34-TzY"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="NVD-iu-Rmu">
+                    <connections>
+                        <action selector="addImageTap:" destination="fv0-Nl-W61" id="ZbD-VL-Cdj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-271.19999999999999" y="-27.436281859070466"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Zrzut ekranu 2018-02-15 o 23.30.59" width="433" height="239"/>
         <image name="customer (1)" width="512" height="512"/>
         <image name="eject" width="128" height="128"/>
         <image name="facebook (1)" width="512" height="512"/>
-        <image name="like" width="128" height="128"/>
+        <image name="like (1)" width="128" height="128"/>
         <image name="photo-camera" width="64" height="64"/>
         <image name="post-it" width="128" height="128"/>
         <image name="tatum" width="400" height="400"/>
