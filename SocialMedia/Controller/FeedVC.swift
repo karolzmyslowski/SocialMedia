@@ -10,7 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdd: CircleView!
@@ -27,11 +27,15 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         tableView.delegate = self
         tableView.dataSource = self
         
+        captionField.delegate = self
+        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
         DataService.ds.REF_POSTS.observe(.value) { (snapshot) in
+            
+            self.posts = []
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
@@ -108,11 +112,11 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             if let img = FeedVC.imageCache.object(forKey: post.imageUrl as NSString) {
                 cell.configureCell(post: post, img: img)
-                 return cell
-            } else {
+           } else {
             cell.configureCell(post: post)
-            return cell
-            }
+            
+           }
+        return cell
         } else {
         return PostCell()
         }
@@ -130,4 +134,9 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+  
 }

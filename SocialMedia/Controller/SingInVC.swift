@@ -12,8 +12,7 @@ import Firebase
 import FBSDKCoreKit
 import SwiftKeychainWrapper
 
-class SingInVC
-: UIViewController {
+class SingInVC: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailField: FancyFT!
@@ -21,7 +20,8 @@ class SingInVC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        emailField.delegate = self
+        pwdField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -92,6 +92,10 @@ class SingInVC
         DataService.ds.createFirebaseUser(uid: id, userData: userData)
             KeychainWrapper.standard.set(id, forKey: "uid")
             performSegue(withIdentifier: "goToFeed", sender: nil)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

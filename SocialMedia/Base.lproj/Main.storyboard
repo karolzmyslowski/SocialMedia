@@ -247,7 +247,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="bxd-ke-dIL">
                                                             <rect key="frame" x="5" y="5" width="333" height="65"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tatum" translatesAutoresizingMaskIntoConstraints="NO" id="i6N-j9-V0N" customClass="CircleView" customModule="SocialMedia" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ja" translatesAutoresizingMaskIntoConstraints="NO" id="i6N-j9-V0N" customClass="CircleView" customModule="SocialMedia" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="2.5" width="60" height="60"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="60" id="GqJ-Bd-JX6"/>
@@ -388,9 +388,9 @@
         <image name="customer (1)" width="512" height="512"/>
         <image name="eject" width="128" height="128"/>
         <image name="facebook (1)" width="512" height="512"/>
+        <image name="ja" width="372" height="462"/>
         <image name="like (1)" width="128" height="128"/>
         <image name="photo-camera" width="64" height="64"/>
         <image name="post-it" width="128" height="128"/>
-        <image name="tatum" width="400" height="400"/>
     </resources>
 </document>
